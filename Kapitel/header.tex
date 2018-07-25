@@ -1,0 +1,365 @@
+\documentclass[
+	pdftex,%              PDFTex verwenden
+	a4paper,%             A4 Papier
+	oneside,%             Einseitig
+	bibtotoc,%    		Literaturverzeichnis einfügen 
+	%bibtotocnumbered%: nummeriert
+	liststotoc,%		Verzeichnisse einbinden in toc
+	idxtotoc,%            Index ins Verzeichnis einfügen
+	halfparskip,%        Europäischer Satz mit abstand zwischen Absätzen
+%	chapterprefix,%       Kapitel anschreiben als Kapitel
+	headsepline,%         Linie nach Kopfzeile
+	%footsepline,%         Linie vor Fusszeile
+	%pointlessnumbers,%     Nummern ohne abschließenden Punkt
+	12pt%                 Grössere Schrift, besser lesbar am bildschrim
+]{scrbook}
+
+ 
+
+%
+% Paket für Übersetzungen ins Deutsche
+%
+\usepackage[french,ngerman,english]{babel}
+
+%
+% Pakete um Latin1 Zeichnensätze verwenden zu können und die dazu
+% passenden Schriften.
+%
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+%
+% Paket für Quotes
+%
+\usepackage[babel,french=guillemets,german=swiss]{csquotes}
+
+%
+% Paket zum Erweitern der Tabelleneigenschaften
+%
+\usepackage{array}
+
+%
+% Paket für schönere Tabellen
+%
+\usepackage{booktabs}
+
+%
+% Paket um Grafiken einbetten zu können
+%
+\usepackage{graphicx}
+
+%
+% Paket für das richtige anzeigen von eingekreisten Zahlen
+%
+%\usepackage{tikz}
+%\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+%		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\newcommand*\circled[1]{\unitlength1ex\begin{picture}(2.5,2.5)%
+	\put(0.75,0.75){\circle{3.2}}\put(0.7,0.7){\makebox(0,0){#1}}\end{picture}}
+
+\usepackage{enumitem}
+
+%
+%Paket zum einstellen des Zeilenabstandes
+%
+\usepackage[singlespacing]{setspace}
+
+%\usepackage[onehalfspacing]{setspace}
+
+%\usepackage[doublespacing]{setspace}
+
+
+%
+% Damit links in der Literatur verwendet werden können
+%
+\usepackage{url}
+
+%
+% Spezielle Schrift im Koma-Script setzen.
+%
+\setkomafont{sectioning}{\normalfont\bfseries}
+\setkomafont{captionlabel}{\normalfont\bfseries} 
+\setkomafont{pagehead}{\normalfont\bfseries} % Kopfzeilenschrift
+\setkomafont{descriptionlabel}{\normalfont\bfseries}
+
+%
+% Zeilenumbruch bei Bildbeschreibungen.
+%
+\setcapindent{1em}
+
+%
+% Kopf und Fußzeilen
+%
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+% Inhalt bis Section rechts und Chapter links
+\automark[section]{chapter}
+% Mitte: leer
+\chead{}
+
+%
+% mathematische symbole aus dem AMS Paket.
+%
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%
+% Type 1 Fonts für bessere darstellung in PDF verwenden.
+%
+\usepackage{mathptmx}           % Times + passende Mathefonts
+%\usepackage[scaled=.92]{helvet} % skalierte Helvetica als \sfdefault
+%\usepackage{courier}            % Courier als \ttdefault
+
+%
+% Paket um Textteile drehen zu können
+%
+\usepackage{rotating}
+
+%
+% Paket für Farben im PDF
+%
+\usepackage{color}
+
+%
+% Paket für Links innerhalb des PDF Dokuments
+%auch die der Inhaltslinks
+%
+\definecolor{LinkColor}{rgb}{0,0,0}
+\usepackage[%
+	pdftitle={Titel},% Titel der Diplomarbeit
+	pdfauthor={Autor},% Autor(en)
+	pdfcreator={LaTeX, LaTeX with hyperref and KOMA-Script},% Genutzte Programme
+	pdfsubject={Betreff}, % Betreff
+	pdfkeywords={Keywords}]{hyperref} % Keywords halt :-)
+\hypersetup{colorlinks=true,% Definition der Links im PDF File
+	linkcolor=LinkColor,%
+	citecolor=LinkColor,%
+	filecolor=LinkColor,%
+	menucolor=LinkColor,%
+	pagecolor=LinkColor,%
+	urlcolor=LinkColor}
+
+%
+% Paket um LIstings sauber zu formatieren.
+%
+\usepackage[savemem]{listings}
+\lstloadlanguages{TeX}
+
+%
+% Listing Definationen für PHP Code
+%
+\definecolor{lbcolor}{rgb}{0.85,0.85,0.85}
+\lstset{language=[LaTeX]TeX,
+	numbers=left,
+	stepnumber=1,
+	numbersep=5pt,
+	numberstyle=\tiny,
+	breaklines=true,
+	breakautoindent=true,
+	postbreak=\space,
+	tabsize=2,
+	basicstyle=\ttfamily\footnotesize,
+	showspaces=false,
+	showstringspaces=false,
+	extendedchars=true,
+	backgroundcolor=\color{lbcolor}}
+%
+% ---------------------------------------------------------------------------
+%
+
+%
+% Neue Umgebungen
+%
+\newenvironment{ListChanges}%
+	{\begin{list}{$\diamondsuit$}{}}%
+	{\end{list}}
+
+%
+% aller Bilder werden im Unterverzeichnis figures gesucht:
+%
+\graphicspath{{bilder/}}
+
+%
+% Literaturverzeichnis-Stil
+%
+\usepackage[square, comma, numbers, sort&compress]{natbib}
+\bibliographystyle{unsrt}
+
+%
+% Anführungsstriche mithilfe von \textss{-anzufuehrendes-}
+%
+\newcommand{\textss}[1]{"`#1"'}
+
+%
+% Strukturiertiefe bis subsubsection{} möglich
+%
+\setcounter{secnumdepth}{3}
+
+%
+% Dargestellte Strukturiertiefe im Inhaltsverzeichnis
+%
+\setcounter{tocdepth}{3}
+
+%
+% Zeilenabstand wird um den Faktor 1.5 verändert
+%
+%\renewcommand{\baselinestretch}{1.5}
+
+%
+% Abkürzungsverzeichnis
+%
+%\usepackage[intoc]{nomencl}
+\usepackage{nomencl}
+% Befehl umbenennen in abk
+\let\abk\nomenclature
+% Deutsche Überschrift
+%\renewcommand{\nomname}{Abbreviations}
+% Punkte zw. Abkürzung und Erklärung
+\setlength{\nomlabelwidth}{.20\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+% Zeilenabstände verkleinern
+\setlength{\nomitemsep}{-\parsep}
+\makenomenclature
+
+
+%
+% Kapitel-Überschriften werden in eine Zeile geschrieben.
+%
+% normal: 
+% Kapitel 1.
+% Einleitung
+%
+% wenn hier auskommentiert:
+% Kapitel 1: Einleitung
+%
+\usepackage{titlesec}
+\titleformat{\chapter}[hang] 
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{1em}{} 
+
+%Um acronyme verwenden zu können
+\usepackage[printonlyused]{acronym}
+
+%Bibliographie Alphabetisch oder Chronologisch ordnen
+%\usepackage[backend=biber,style=alphabetic]{biblatex}
+
+%Fue coole Farben
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{DarkGreen}{RGB}{0,128,0}
+\definecolor{Tuerkis}{RGB}{0,255,255}
+\definecolor{Red}{RGB}{255,0,0}
+
+%damit man meherere bilder zusammen formatieren kann
+\usepackage{subfigure}
+
+%um gefüllte objekte zu erzeugen
+\usepackage{tikz}
+
+\newcommand{\filledcircle}[2][blue, fill=red]{\tikz[baseline=-1ex, line width=0.1ex]\draw[#1,radius=#2] (0,0) circle ;}
+%usage \tikzcircle[framecolour, fill colour]{size}
+
+\newcommand{\filleddiamond}[1][fill=black]{\tikz [x=2ex,y=2ex, line width=.1ex] \draw  [#1]  (0,.5) -- (.5,1) -- (1,.5) -- (.5,0) -- (0,.5) -- cycle;}%
+%usage \filleddiamond[fill colour]
+
+\newcommand{\filledstar}[1][fill=black]{\tikz [x=2ex,y=2ex, line width=.1ex] \draw  [#1]  (0.5,1) -- (0.65,0.6) -- (1,0.6) -- (0.7,0.4) -- (0.8,0) -- (0.5,0.3) -- (0.2,0) -- (0.3,0.4) -- (0,0.6) -- (0.35,0.6) -- cycle;}%
+
+
+%\newcommand{\sqdiamond}[1][fill=black]{\tikz [x=1.2ex,y=1.85ex,line width=.1ex,line join=round, yshift=-0.285ex] \draw  [#1]  (0,.5) -- (.5,1) -- (1,.5) -- (.5,0) -- (0,.5) -- cycle;}%
+%\newcommand{\sqdiamondDash}[1][fill=black]{%
+%	\tikz [x=1.2ex,y=1.85ex,line width=.1ex,line join=round, yshift=-0.285ex] 
+%	\draw  [#1]  
+%	(0,.5) -- (.5,1) -- (1,.5) -- (.5,0) -- (0,.5) -- cycle
+%	(0,1.1) --  (1,1.1);
+%}%
+%\newcommand{\MyDiamond}[1][fill=black]{\mathop{\raisebox{-0.275ex}{$\sqdiamond[#1]$}}}
+%\newcommand{\MyDiamondDash}[1][fill=black]{\mathop{\raisebox{-0.275ex}{$\sqdiamondDash[#1]$}}}
+
+%Um float objekte verwalten zu können
+\usepackage{float}
+
+%Für subcaptions
+%\usepackage{subcaption}
+
+% Hack: Eigenen, rudimentären Kapitelstil definieren.
+
+\usepackage{lmodern}
+
+\setkomafont{chapter}{\huge}
+\makeatletter
+% Hack: Eigenen, rudimentären Kapitelstil definieren.
+\newcommand*{\scr@dsc@def@style@xchapter@command}[1]{%
+	\scr@dsc@def@style@chapter@command{#1}%
+	\expandafter\def\csname @@make#1head\endcsname##1{%
+		\let\orig@raggedchapter\raggedchapter
+		\let\raggedchapter\raggedleft
+		\let\orig@hangfrom\@hangfrom
+		\let\@hangfrom\chapterhang
+		\scr@@makechapterhead{#1}{##1}%
+		\let\@hangfrom\orig@saved@hangfrom
+		\let\raggedchapter\orig@raggedchapter
+	}%
+}
+\makeatother
+\DeclareSectionCommand[style=xchapter]{chapter}
+\newbox\chapternumberbox
+\newcommand{\chapterhang}[2]{%
+	\savebox\chapternumberbox{\fontsize{100}{100}\normalfont\sffamily\bfseries
+		\thechapter}%
+	\parbox[t]{\dimexpr\linewidth-\wd\chapternumberbox-1em}{%
+		\raggedleft
+		\makebox[1em][l]{\normalfont\normalsize\slshape\chapapp}\\
+		#2%
+	}\quad
+	\raisebox{-1.75\baselineskip}{\usebox\chapternumberbox}\par
+} 
+\usepackage{mwe}
+
+
+%Damit auch das normale Layout bei kapitel funktioniert
+\newcommand\normallayout{
+	\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+	\titleformat{\chapter}[display]
+	{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+	\titleformat{\section}
+	{\normalfont\Large\bfseries}{\thesection}{1em}{}
+	\titleformat{\subsection}
+	{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+}
+
+
+
+
+%Für die titelseite ein paket
+\usepackage{epigraph}
+
+
+\definecolor{pagecolor}{cmyk}{1,.60,0,.40}
+\newcommand\pagedecoration{%
+	\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+	
+	\coordinate (aux1) at ([yshift=-15pt]current page.north east);
+	\coordinate (aux2) at ([yshift=-410pt]current page.north east);
+	\coordinate (aux3) at ([xshift=-4.5cm]current page.north east);
+	\coordinate (aux4) at ([yshift=-150pt]current page.north east);
+	
+	\begin{scope}[pagecolor!40,line width=12pt,rounded corners=12pt]
+	\draw
+	(aux1) -- coordinate (a)
+	++(225:5) --
+	++(-45:5.1) coordinate (b);
+	\draw[shorten <= -10pt]
+	(aux3) --
+	(a) --
+	(aux1);
+	\draw[opacity=0.6,titlepagecolor,shorten <= -10pt]
+	(b) --
+	++(225:2.2) --
+	++(-45:2.2);
+	\end{scope}
+	\draw[titlepagecolor,line width=8pt,rounded corners=8pt,shorten <= -10pt]
+	(aux4) --
+	++(225:0.8) --
+	++(-45:0.8);
+	\end{tikzpicture}%
+}
+

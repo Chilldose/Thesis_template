@@ -1,0 +1,72 @@
+% Die Titelseite
+% Im folgenden kommen ein paar Variablen, die auszufüllen sind
+% Bisher steht dort nur Musterinhalt
+% Außerdem müssen zei Dateien erstellt werden, Bild/Logo/Emblem des Fachgebietes
+% sowie der Universität
+
+\newcommand{\trtitle}{Titel Diplomarbeit}
+\newcommand{\trtype}{Diplomarbeit}
+\newcommand{\trauthor}{Dominic \textsc{Blöch}, BSc}
+\newcommand{\trauthoradress}{Abelegasse 28/5, 1160 Vienna}
+\newcommand{\trstrasse}{Wiedner Hauptstraße}
+\newcommand{\trmatrikelnummer}{1025929}
+\newcommand{\trort}{Wien}
+\newcommand{\trbetreuer}{Ing. Dipl.-Ing.  Reinhard \textsc{Stadlmayr}, BSc.}
+\newcommand{\trbetreuerberni}{Dipl.-Ing. Bernhard \textsc{Berger}, BSc.}
+\newcommand{\trprof}{Univ.-Prof. Mag.rer.nat. Dipl.-Ing. Dr.techn. Friedrich \textsc{Aumayr}}
+\newcommand{\trfachgebiet}{Atom- und Plasmaphysik}
+\newcommand{\trinstitut}{Angewandte Physik}
+\newcommand{\trfakultaet}{Arbeitsgruppe \textsc{Aumayr}}
+\newcommand{\truni}{\textsc{Technischen Universität Wien}}
+\newcommand{\trunititel}{\textsc{Technische Universität Wien}}
+\newcommand{\trdate}{\today}
+
+\thispagestyle{empty}
+
+% Kopfzeile mit Logos.
+% Eventuell die \hspace{} je nach Logogröße anpassen
+\begin{tabular}{lcr}
+  \includegraphics[scale=0.15]{TU_Logo.pdf} & % dein_unilogo.jpg/.eps im Verzeichnis "bilder" ablegen
+  \hspace{0.8cm} \trunititel \hspace{2cm} &
+  \includegraphics[scale=0.3]{iap-logo.jpg} % dein_fglogo.jpg/.eps im Verzeichnis "bilder" ablegen, Fachgebietslogo
+  \\
+\end{tabular}
+
+\rule{\textwidth}{0.4pt}
+
+\vspace{2.5cm}
+\begin{center}
+  \textbf{\LARGE \trtitle}
+\end{center}
+\vspace{2cm}
+
+\begin{center}
+  \textbf{\trtype} \\
+  im Fachgebiet \trfachgebiet \\
+  vorgelegt bei \trprof \\
+  am Institut für \trinstitut \\
+  in der \trfakultaet \\
+  an der \truni \\[0.5cm]
+  vorgelegt von \\
+  \textbf{\trauthor}
+\end{center}
+
+\vspace{1cm}
+
+
+\begin{center}
+\begin{tabular}{ll}
+Betreut durch:& \trbetreuer  \\
+& \trbetreuerberni \\
+\end{tabular}
+\end{center}
+
+\vfill
+
+\begin{tabular}{l}
+\trauthor \\
+Matrikelnummer:  \trmatrikelnummer \\
+\trort, am \trdate
+\end{tabular}
+
+\rule{\textwidth}{0.4pt}
