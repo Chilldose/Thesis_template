@@ -1,128 +1,122 @@
 \documentclass[
-	pdftex,%              PDFTex verwenden
-	a4paper,%             A4 Papier
-	oneside,%             Einseitig
-	bibtotoc,%    		Literaturverzeichnis einfügen 
-	%bibtotocnumbered%: nummeriert
-	liststotoc,%		Verzeichnisse einbinden in toc
-	idxtotoc,%            Index ins Verzeichnis einfügen
-	halfparskip,%        Europäischer Satz mit abstand zwischen Absätzen
-%	chapterprefix,%       Kapitel anschreiben als Kapitel
-	headsepline,%         Linie nach Kopfzeile
-	%footsepline,%         Linie vor Fusszeile
-	%pointlessnumbers,%     Nummern ohne abschließenden Punkt
-	12pt%                 Grössere Schrift, besser lesbar am bildschrim
+	pdftex,%              		use PDFlatex
+	a4paper,%             		A4 paper
+	oneside,%             		onesided
+	bibtotoc,%    				Include literature 
+	%bibtotocnumbered%: 		Bib toc numbering
+	liststotoc,%				Include directories in toc
+	idxtotoc,%            		Index directoriers
+	halfparskip,%        		European text style
+	%chapterprefix,%       		Chapters as Chapters
+	headsepline,%         		Line after header
+	%footsepline,%         		Line before footer
+	%pointlessnumbers,%     	Nummern ohne abschließenden Punkt
+	12pt%                 		Pointsize of the font
 ]{scrbook}
 
  
 
 %
-% Paket für Übersetzungen ins Deutsche
+% Package for english german and french
 %
 \usepackage[french,ngerman,english]{babel}
 
 %
-% Pakete um Latin1 Zeichnensätze verwenden zu können und die dazu
-% passenden Schriften.
+% Package for use of Latin1,
 %
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 
 %
-% Paket für Quotes
+% Package for quotes
 %
 \usepackage[babel,french=guillemets,german=swiss]{csquotes}
 
 %
-% Paket zum Erweitern der Tabelleneigenschaften
+% Package for extended table manipulations
 %
 \usepackage{array}
 
 %
-% Paket für schönere Tabellen
+% Package for more beautiful tables
 %
 \usepackage{booktabs}
 
 %
-% Paket um Grafiken einbetten zu können
+% Package to include graphics
 %
 \usepackage{graphicx}
 
 %
-% Paket für das richtige anzeigen von eingekreisten Zahlen
+% Package/command for encircled letters
 %
-%\usepackage{tikz}
-%\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-%		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 \newcommand*\circled[1]{\unitlength1ex\begin{picture}(2.5,2.5)%
 	\put(0.75,0.75){\circle{3.2}}\put(0.7,0.7){\makebox(0,0){#1}}\end{picture}}
 
 \usepackage{enumitem}
 
 %
-%Paket zum einstellen des Zeilenabstandes
+% Package for spacing
 %
 \usepackage[singlespacing]{setspace}
-
 %\usepackage[onehalfspacing]{setspace}
-
 %\usepackage[doublespacing]{setspace}
 
 
 %
-% Damit links in der Literatur verwendet werden können
+% Package for using links
 %
 \usepackage{url}
 
 %
-% Spezielle Schrift im Koma-Script setzen.
+% Special font for Koma-Scripts
 %
 \setkomafont{sectioning}{\normalfont\bfseries}
 \setkomafont{captionlabel}{\normalfont\bfseries} 
-\setkomafont{pagehead}{\normalfont\bfseries} % Kopfzeilenschrift
+\setkomafont{pagehead}{\normalfont\bfseries} % Header font
 \setkomafont{descriptionlabel}{\normalfont\bfseries}
 
 %
-% Zeilenumbruch bei Bildbeschreibungen.
+% Line break in plot descriptions
 %
 \setcapindent{1em}
 
 %
-% Kopf und Fußzeilen
+% Header and foother
 %
 \usepackage{scrpage2}
 \pagestyle{scrheadings}
 % Inhalt bis Section rechts und Chapter links
 \automark[section]{chapter}
-% Mitte: leer
+% Middle: empty
 \chead{}
 
 %
-% mathematische symbole aus dem AMS Paket.
+% mathematical symbols
 %
 \usepackage{amsmath}
 \usepackage{amssymb}
 
 %
-% Type 1 Fonts für bessere darstellung in PDF verwenden.
+% Type 1 Fonts for fancy display in pdf.
 %
 \usepackage{mathptmx}           % Times + passende Mathefonts
 %\usepackage[scaled=.92]{helvet} % skalierte Helvetica als \sfdefault
 %\usepackage{courier}            % Courier als \ttdefault
 
 %
-% Paket um Textteile drehen zu können
+% Package for rotating text
 %
 \usepackage{rotating}
 
 %
-% Paket für Farben im PDF
+% Package for colors in pdf
 %
 \usepackage{color}
 
 %
-% Paket für Links innerhalb des PDF Dokuments
-%auch die der Inhaltslinks
+% Package for links inside the pdf
+% works also for content links
 %
 \definecolor{LinkColor}{rgb}{0,0,0}
 \usepackage[%
@@ -140,13 +134,13 @@
 	urlcolor=LinkColor}
 
 %
-% Paket um LIstings sauber zu formatieren.
+% Package for correct listings
 %
 \usepackage[savemem]{listings}
 \lstloadlanguages{TeX}
 
 %
-% Listing Definationen für PHP Code
+% Listing Definationen for PHP Code
 %
 \definecolor{lbcolor}{rgb}{0.85,0.85,0.85}
 \lstset{language=[LaTeX]TeX,
@@ -168,16 +162,16 @@
 %
 
 %
-% Neue Umgebungen
+% New Environement
 %
 \newenvironment{ListChanges}%
 	{\begin{list}{$\diamondsuit$}{}}%
 	{\end{list}}
 
 %
-% aller Bilder werden im Unterverzeichnis figures gesucht:
+% Where does tex look for images:
 %
-\graphicspath{{bilder/}}
+\graphicspath{{pictures/}}
 
 %
 % Literaturverzeichnis-Stil
@@ -186,22 +180,22 @@
 \bibliographystyle{unsrt}
 
 %
-% Anführungsstriche mithilfe von \textss{-anzufuehrendes-}
+% Qote marks \textss{-anzufuehrendes-}
 %
 \newcommand{\textss}[1]{"`#1"'}
 
 %
-% Strukturiertiefe bis subsubsection{} möglich
+% Structuring depth until subsubsection{} possible
 %
 \setcounter{secnumdepth}{3}
 
 %
-% Dargestellte Strukturiertiefe im Inhaltsverzeichnis
+% Displayed structure depth 
 %
 \setcounter{tocdepth}{3}
 
 %
-% Zeilenabstand wird um den Faktor 1.5 verändert
+% Baseline stretch
 %
 %\renewcommand{\baselinestretch}{1.5}
 
@@ -225,31 +219,21 @@
 %
 % Kapitel-Überschriften werden in eine Zeile geschrieben.
 %
-% normal: 
-% Kapitel 1.
-% Einleitung
-%
-% wenn hier auskommentiert:
-% Kapitel 1: Einleitung
-%
-\usepackage{titlesec}
-\titleformat{\chapter}[hang] 
-{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{1em}{} 
 
-%Um acronyme verwenden zu können
+% For acronyms
 \usepackage[printonlyused]{acronym}
 
-%Bibliographie Alphabetisch oder Chronologisch ordnen
+% Bibliographie Alphabetisch oder Chronologisch ordnen
 %\usepackage[backend=biber,style=alphabetic]{biblatex}
 
-%Fue coole Farben
+% For fancy colors
 \usepackage[dvipsnames]{xcolor}
 
 \definecolor{DarkGreen}{RGB}{0,128,0}
 \definecolor{Tuerkis}{RGB}{0,255,255}
 \definecolor{Red}{RGB}{255,0,0}
 
-%damit man meherere bilder zusammen formatieren kann
+% damit man meherere bilder zusammen formatieren kann
 \usepackage{subfigure}
 
 %um gefüllte objekte zu erzeugen
@@ -280,13 +264,30 @@
 %Für subcaptions
 %\usepackage{subcaption}
 
+
+\usepackage{titlesec}
+%
+% normal: 
+% Kapitel 1.
+% Einleitung
+\newcommand{\onlychaptername}{\titleformat{\chapter}[hang] 
+	{\normalfont\huge\bfseries}{}{1em}{}}
+
+% Kapitel 1: Einleitung
+\newcommand{\normalchapter}{\titleformat{\chapter}[hang] 
+	{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{1em}{}}
+
+% Vanilla
+\newcommand{\nochapternumbering}{\titleformat{\chapter}[hang] 
+	{\normalfont\huge\bfseries}{\chaptertitlename:}{1em}{}}
+
+
 % Hack: Eigenen, rudimentären Kapitelstil definieren.
-
 \usepackage{lmodern}
-
 \setkomafont{chapter}{\huge}
 \makeatletter
 % Hack: Eigenen, rudimentären Kapitelstil definieren.
+%\scr@dsc@def@style@xchapter@command
 \newcommand*{\scr@dsc@def@style@xchapter@command}[1]{%
 	\scr@dsc@def@style@chapter@command{#1}%
 	\expandafter\def\csname @@make#1head\endcsname##1{%
@@ -298,9 +299,11 @@
 		\let\@hangfrom\orig@saved@hangfrom
 		\let\raggedchapter\orig@raggedchapter
 	}%
-}
+} 
 \makeatother
-\DeclareSectionCommand[style=xchapter]{chapter}
+
+\newcommand{\fancychapter}{\DeclareSectionCommand[style=xchapter]{chapter}}
+
 \newbox\chapternumberbox
 \newcommand{\chapterhang}[2]{%
 	\savebox\chapternumberbox{\fontsize{100}{100}\normalfont\sffamily\bfseries
@@ -311,11 +314,14 @@
 		#2%
 	}\quad
 	\raisebox{-1.75\baselineskip}{\usebox\chapternumberbox}\par
-} 
+}
+
+
+
 \usepackage{mwe}
 
 
-%Damit auch das normale Layout bei kapitel funktioniert
+% Normal layout
 \newcommand\normallayout{
 	\titlespacing*{\chapter}{0pt}{50pt}{40pt}
 	\titleformat{\chapter}[display]

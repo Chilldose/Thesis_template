@@ -1,0 +1,61 @@
+% Include headers and modules which are needed in this TeX
+\input{chapter/header}
+
+
+\begin{document}
+
+% Roman page numbering 
+\pagenumbering{Roman}
+
+% Titlepage
+\input{Chapter/titlepage}
+
+% Directories
+
+% Head leftside: Chapter, Head rightside: empty
+\ihead{\leftmark}
+\ohead{}
+
+\input{chapter/directories}
+\input{chapter/abstract}
+\input{chapter/List_of_publications}
+
+% Save the number of the roman page number for later on 
+% Do normal pagenumbering 
+\newpage
+\newcounter{roman}
+\setcounter{roman}{\value{page}}
+\pagenumbering{arabic}
+
+% Now include all chapters you have
+% Header: left Chapter, right section
+%\ihead{\leftmark}
+%\ohead{\rightmark}
+
+
+\fancychapter
+\ihead{\parbox[t][2\baselineskip][t]{\dimexpr\linewidth-2em\relax}{\leftmark}}
+\ohead{\parbox[t][2\baselineskip][t]{20em}{\raggedleft\rightmark}}
+\input{chapter/Introduction}
+\input{chapter/Chapter_1}
+\input{chapter/Chapter_2}
+\input{chapter/Conclusion}
+
+% Contiunue with the roman Page numbering
+\newpage
+\pagenumbering{Roman}
+\setcounter{page}{\value{roman}}
+
+
+% Set the layout of the pages to normal, if any alterations have been made
+\normallayout
+
+\input{chapter/appendix}
+
+%Include the right bibtech file
+\bibliography{literature/bib}
+
+% Include addional files if need be
+%\input{chapter/eidesstattliche}
+
+\end{document}
